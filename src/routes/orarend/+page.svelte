@@ -132,7 +132,7 @@ function opp(i) {
     position: absolute;
     width: 557px;
     height: 40px;
-    font-size: 40px;
+    font-size: 35px;
     font-family: 'Dancing Script', cursive;
     color: rgb(33, 64, 67);
     text-shadow: 1px 1px 2px rgb(132, 114, 114);
