@@ -120,6 +120,7 @@ function opp(i) {
     font-size: 9px;
     position: absolute;
     box-shadow: 1px 1px 2px inset rgb(162, 148, 148);
+    user-select: none;
   }
   div.hr {
     position: absolute;
