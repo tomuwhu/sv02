@@ -11,15 +11,13 @@ onMount(() => {
     }, 1000)
     appdata.mounted = false
   }
-  fetch('input.json')
-    .then(x => x.json())
-    .then(data => {
+  fetch('input.json').then(x => x.json()).then(data => {
       appdata.orak = data
       appdata.left = (window.innerWidth-772)/2
       appdata.top = (window.innerHeight-632)/2
       if (appdata.left > -100 && appdata.top > 20) appdata.mounted = true
       else appdata.msg = "Túl kicsi ablakméret..."
-    })
+  })
 })
 const style = ora => `
   top: ${appdata.top + 20 + (ora.ok[0]-7)*60 + ora.ok[1]}px; 
