@@ -54,7 +54,7 @@ function opp(i) {
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
-<style>
+<style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
   div.cont {
     opacity: 0.75;
@@ -137,16 +137,8 @@ function opp(i) {
     color: rgb(33, 64, 67);
     text-shadow: 1px 1px 2px rgb(132, 114, 114);
   }
-  .orr span {
-    border: solid 1px black;
+  div.orr span {
     color: rgb(96, 65, 24);
-    padding-top: 6px;
-    padding-bottom: 2px;
-    padding-left: 18px;
-    padding-right: 20px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px inset black;
-    background-color: rgb(222, 237, 228);
     user-select: none;
   }
 </style>
