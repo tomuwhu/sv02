@@ -80,6 +80,9 @@ function opp(i) {
   div.S {
     background-color: pink;
   }
+  div.K {
+    background-color: rgb(192, 225, 255);
+  }
   div.nn {
     border: solid 0.5px rgb(64, 69, 52);
     text-align: center;
