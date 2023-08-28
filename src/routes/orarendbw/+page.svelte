@@ -36,7 +36,7 @@
   const hrs = (i, a) =>
     `top: ${appdata.top + 45 + i * 15}px; left: ${appdata.left + a}px;`;
   const hrs2 = (i) =>
-    `top: ${appdata.top + 50 + i * 15}px; left: ${appdata.left + 107}px;`;
+    `top: ${appdata.top + 50 + i * 15}px; left: ${appdata.left + 111}px;`;
   function opp(i) {
     let perc = 30 + i * 15;
     let ora = 7 + Math.trunc(perc / 60);
@@ -52,7 +52,7 @@
   {#each Array(41).fill(0) as _, i}
     <div style={hrs2(i)} class="hr" />
     <div style={hrs(i, 107)} class="ip">{opp(i)}</div>
-    <div style={hrs(i, 638)} class="ip">{opp(i)}</div>
+    <div style={hrs(i, 636)} class="ip">{opp(i)}</div>
   {/each}
   {#each appdata.orak as ora}
     <div class="cont {ora.type}" style={style(ora)}>
@@ -92,13 +92,13 @@
     color: rgb(224, 203, 203);
   }
   div.E {
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(160, 160, 160);
   }
   div.S {
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(120, 120, 120);
   }
   div.K {
-    background-color: rgb(141, 141, 141);
+    background-color: rgb(124, 124, 124);
   }
   div.nn {
     border: solid 0.5px rgb(0, 0, 0);
@@ -118,8 +118,7 @@
     padding-top: 1px;
     padding-bottom: 2px;
     background-color: rgb(255, 255, 255);
-    border: solid 1px rgb(21, 21, 21);
-    box-shadow: 0px 2px 3px rgb(161, 151, 151);
+    border: solid 1px black;
     border-radius: 7px;
   }
   .csh .csop {
@@ -146,7 +145,7 @@
     position: absolute;
     height: 0px;
     border: solid 0.5px black;
-    width: 558px;
+    width: 550px;
   }
   div.orr {
     position: absolute;
