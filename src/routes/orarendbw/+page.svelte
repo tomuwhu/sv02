@@ -29,7 +29,7 @@
   top: ${appdata.top + 20 + (ora.ok[0] - 7) * 60 + ora.ok[1]}px; 
   left:${
     appdata.left + 140 + { H: 0, K: 1, Sz: 2, Cs: 3, P: 4 }[ora.n] * 100
-  }px; width: 90px; 
+  }px; 
   height: ${ora.it}px`;
   const snn = (n, i) =>
     `left:${appdata.left + 137 + i * 100}px; top: ${appdata.top + 17}px`;
@@ -58,9 +58,12 @@
     <div class="cont {ora.type}" style={style(ora)}>
       <div class="text">{ora.text}</div>
       <div class="csh">
-        <span class="csop">{ora.csop}</span> -
+        <span class="csop">{ora.csop}</span> ---
         <span class="hsz">{ora.helysz}</span>
       </div>
+      {#if ora.it > 45}
+        <div class="hsz">&lt {ora.it / 45}<span>x45 perc</span> &gt</div>
+      {/if}
     </div>
   {/each}
   <div
@@ -75,6 +78,12 @@
 
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+  div.hsz {
+    font-size: 12px;
+  }
+  div.hsz span {
+    font-size: 7px;
+  }
   div.cont {
     position: absolute;
     border: solid 1px rgb(9, 9, 9);
@@ -89,16 +98,21 @@
   div.csh {
     font-size: 11px;
     margin-top: 3px;
-    color: rgb(224, 203, 203);
+    color: rgb(0, 0, 0);
   }
   div.E {
-    background-color: rgb(160, 160, 160);
+    background-color: rgb(255, 255, 255);
+    width: 87px;
+    border: dotted 2px black;
   }
   div.S {
-    background-color: rgb(120, 120, 120);
+    background-color: rgb(255, 255, 255);
+    border: double 4px black;
+    width: 84px;
   }
   div.K {
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(160, 160, 160);
+    width: 90px;
   }
   div.nn {
     border: solid 0.5px rgb(0, 0, 0);
