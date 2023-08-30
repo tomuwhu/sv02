@@ -69,7 +69,31 @@
       12,
       20
     ],
-    "it": 90
+    "it": 45
+  },
+  {
+    "type": "S",
+    "text": "Digitális Kultúra",
+    "csop": "12/I",
+    "helysz": "I19",
+    "n": "Cs",
+    "ok": [
+      13,
+      15
+    ],
+    "it": 45
+  },
+  {
+    "type": "S",
+    "text": "Digitális Kultúra",
+    "csop": "11/I",
+    "helysz": "I17",
+    "n": "H",
+    "ok": [
+      11,
+      15
+    ],
+    "it": 45
   },
   {
     "type": "S",
@@ -78,10 +102,10 @@
     "helysz": "I17",
     "n": "H",
     "ok": [
-      11,
-      15
+      12,
+      20
     ],
-    "it": 90
+    "it": 45
   },
   {
     "type": "K",
