@@ -14,7 +14,7 @@
 <code
   >Your task is to divide the numbers 1,2,…,n into two sets of equal sum.</code
 >
-<div>n = {size} ({n}x{n}, {n ** 2 - size} hidden)</div>
+<div>n = {size} ({n}x{n}, {n ** 2 - size} unnecessary)</div>
 
 <br />
 <input type="range" bind:value={size} min={3} max={100} on:focus={rerender} />
