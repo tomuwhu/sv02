@@ -21,6 +21,7 @@
     >{/each}
 </table>
 <br />
+<a href="2sets">Two Sets Problem</a>
 <a href="orarend">Órarend</a>
 <a href="orarendbw">Nyomtatni</a>
 

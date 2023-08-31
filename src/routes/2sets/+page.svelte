@@ -1,11 +1,15 @@
 <script>
   var c = { x: 0, id: "" };
   var size = 7,
-    render = true;
+    render = true,
+    h1 = 0,
+    h2 = 0;
   $: n = Math.trunc(Math.sqrt(size) + 0.99999);
   const i = (x, y, n) => 1 + n * y + x;
   function rerender(e) {
     render = false;
+    h1 = 0;
+    h2 = 0;
     setTimeout(() => (render = true));
   }
 </script>
@@ -14,44 +18,62 @@
 <code
   >Your task is to divide the numbers 1,2,…,n into two sets of equal sum.</code
 >
-<div>n = {size} ({n}x{n}, {n ** 2 - size} unnecessary)</div>
+<div>
+  n = {size} ({n}x{n}{n ** 2 == size ? `` : `, ${n ** 2 - size} unnecessary`}),
+  sum(1..{size}) = {(size * (size + 1)) / 2}
+  {@html ((size * (size + 1)) / 2) % 2
+    ? `is odd => <i>there is no solution</i>`
+    : `is even => <b>there is a solution</b>`}
+</div>
 
 <br />
 <input type="range" bind:value={size} min={3} max={100} on:focus={rerender} />
 {#if render}
   <table>
     <td
-      class="s s1"
+      class="s"
+      id="h1"
       on:dragover={(e) => e.preventDefault()}
       on:drop={(e) => {
-        e.target.innerHTML = Number(e.target.innerHTML) + c.x;
+        h1 += c.x;
         document.getElementById(c.id).classList.add("h");
-      }}>0</td
+      }}>{h1}</td
     >
-    <td class="cont" />
+    <td class="c2" />
     <td class="cont">
-      <table>
-        {#each Array(n) as _, y}<tr
-            >{#each Array(n) as _, x}
-              <td
-                draggable="true"
-                on:dragstart={(e) =>
-                  (c = { x: Number(e.target.innerHTML), id: e.target.id })}
-                id="x{i(x, y, n)}"
-                class={i(x, y, n) > size ? "h e" : "e"}>{i(x, y, n)}</td
-              >
-            {/each}</tr
-          >{/each}
-      </table>
+      {#if h1 + h2 == (size * (size + 1)) / 2}
+        <code>
+          {#if h1 == h2}
+            Solved
+          {:else}
+            Unsolved
+          {/if}
+        </code>
+      {:else}
+        <table>
+          {#each Array(n) as _, y}<tr
+              >{#each Array(n) as _, x}
+                <td
+                  draggable="true"
+                  on:dragstart={(e) =>
+                    (c = { x: Number(e.target.innerHTML), id: e.target.id })}
+                  id="x{i(x, y, n)}"
+                  class={i(x, y, n) > size ? "h e" : "e"}>{i(x, y, n)}</td
+                >
+              {/each}</tr
+            >{/each}
+        </table>
+      {/if}
     </td>
-    <td class="cont" />
+    <td class="c2" />
     <td
-      class="s s2"
+      class="s"
+      id="h2"
       on:dragover={(e) => e.preventDefault()}
       on:drop={(e) => {
-        e.target.innerHTML = Number(e.target.innerHTML) + c.x;
+        h2 += c.x;
         document.getElementById(c.id).classList.add("h");
-      }}>0</td
+      }}>{h2}</td
     >
   </table>
 {/if}
@@ -61,6 +83,13 @@
 >
 
 <style lang="scss">
+  :global(i) {
+    color: red;
+  }
+  :global(b) {
+    font-weight: normal;
+    color: rgb(33, 112, 44);
+  }
   h1,
   code,
   div,
@@ -78,9 +107,13 @@
     box-shadow: 1px 1px 3px rgb(149, 167, 173);
     border-radius: 6px;
   }
-  td.cont {
+  td.cont,
+  td.c2 {
     all: unset;
     display: table-cell;
+  }
+  td.c2 {
+    width: 40px;
   }
   td.e {
     width: 36px;
@@ -91,10 +124,10 @@
     width: 56px;
     box-shadow: 1px 1px 3px inset black;
   }
-  td.s1 {
+  td#h1 {
     background-color: rgb(177, 223, 208);
   }
-  td.s2 {
+  td#h2 {
     background-color: rgb(223, 194, 177);
   }
   :global(.h) {
