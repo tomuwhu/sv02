@@ -1,29 +1,37 @@
 <script>
   var c = { x: 0, id: "" };
-  var size = 7,
+  var size = 12,
     render = true,
     h1 = 0,
-    h2 = 0;
+    h2 = 0,
+    h1t = [],
+    h2t = [],
+    help = false;
   $: n = Math.trunc(Math.sqrt(size) + 0.99999);
   const i = (x, y, n) => 1 + n * y + x;
   function rerender(e) {
-    render = false;
-    h1 = 0;
-    h2 = 0;
+    (render = false), (h1 = 0), (h2 = 0), (h1t = []), (h2t = []);
     setTimeout(() => (render = true));
   }
 </script>
 
-<h1>Two Sets Problem</h1>
+<h1>Two Sets <button on:click={() => (help = !help)}>Problem</button></h1>
 <code
   >Your task is to divide the numbers 1,2,…,n into two sets of equal sum.</code
 >
 <div>
-  n = {size} ({n}x{n}{n ** 2 == size ? `` : `, ${n ** 2 - size} unnecessary`}),
-  sum(1..{size}) = {(size * (size + 1)) / 2}
-  {@html ((size * (size + 1)) / 2) % 2
-    ? `is odd => <i>there is no solution</i>`
-    : `is even => <b>there is a solution</b>`}
+  n = {size} ({n}x{n}{n ** 2 == size ? `` : `, ${n ** 2 - size} unnecessary`})
+  {#if help}
+    <span>
+      sum(1..{size}) = {(size * (size + 1)) / 2}
+      {@html ((size * (size + 1)) / 2) % 2
+        ? `is odd => <i>there is no solution</i>`
+        : `is even => <b>there is a solution</b>`}, Target: {(size *
+        (size + 1)) /
+        4 -
+        Math.max(h1, h2)}
+    </span>
+  {/if}
 </div>
 
 <br />
@@ -36,19 +44,30 @@
       on:dragover={(e) => e.preventDefault()}
       on:drop={(e) => {
         h1 += c.x;
+        h1t.push(c.x);
         document.getElementById(c.id).classList.add("h");
       }}>{h1}</td
     >
     <td class="c2" />
     <td class="cont">
       {#if h1 + h2 == (size * (size + 1)) / 2}
-        <code>
-          {#if h1 == h2}
-            Solved
-          {:else}
-            Unsolved
-          {/if}
-        </code>
+        {#if h1 == h2}
+          <table class="sol">
+            <tr><td colspan={2}><b>Solved:</b></td></tr>
+            <tr
+              ><td class="l h1">Set 1:</td><td class="r h1"
+                >{h1t.sort((a, b) => a - b).join(", ")}</td
+              ></tr
+            >
+            <tr
+              ><td class="l h2">Set 2:</td><td class="r h2"
+                >{h2t.sort((a, b) => a - b).join(", ")}</td
+              ></tr
+            >
+          </table>
+        {:else}
+          <code>Unsolved</code>
+        {/if}
       {:else}
         <table>
           {#each Array(n) as _, y}<tr
@@ -72,6 +91,7 @@
       on:dragover={(e) => e.preventDefault()}
       on:drop={(e) => {
         h2 += c.x;
+        h2t.push(c.x);
         document.getElementById(c.id).classList.add("h");
       }}>{h2}</td
     >
@@ -83,6 +103,27 @@
 >
 
 <style lang="scss">
+  table.sol tr td {
+    padding: 6px;
+  }
+  td.l {
+    text-align: left;
+    font-size: 11px;
+    color: rgb(14, 44, 61);
+  }
+  td.r {
+    text-align: right;
+    font-size: 11px;
+    color: rgb(16, 54, 72);
+  }
+  button {
+    all: unset;
+    cursor: pointer;
+    color: rgb(47, 20, 20);
+  }
+  button:hover {
+    color: rgb(143, 84, 84);
+  }
   :global(i) {
     color: red;
   }
@@ -121,13 +162,17 @@
     background-color: rgb(182, 224, 228);
   }
   td.s {
+    padding-top: 14px;
+    margin-top: 0px;
     width: 56px;
     box-shadow: 1px 1px 3px inset black;
   }
-  td#h1 {
+  td#h1,
+  .h1 {
     background-color: rgb(177, 223, 208);
   }
-  td#h2 {
+  td#h2,
+  .h2 {
     background-color: rgb(223, 194, 177);
   }
   :global(.h) {
