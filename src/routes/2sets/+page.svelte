@@ -20,16 +20,19 @@
   >Your task is to divide the numbers 1,2,…,n into two sets of equal sum.</code
 >
 <div>
-  n = {size} ({n}x{n}{n ** 2 == size ? `` : `, ${n ** 2 - size} unnecessary`})
+  n = {size}
+  ({(n - 1) ** 2}≤{size}≤{n ** 2} ⇒ {n}x{n} - {size} = {n ** 2 == size
+    ? `0) filled all`
+    : `${n ** 2 - size} unused)`}
   {#if help}
     <span>
-      sum(1..{size}) = {(size * (size + 1)) / 2}
+      🗝 ∑(1..{size}) = {(size * (size + 1)) / 2}
       {@html ((size * (size + 1)) / 2) % 2
-        ? `is odd => <i>there is no solution</i>`
-        : `is even => <b>there is a solution</b>`}, Target: {(size *
+        ? `is odd => <i>There is no solution.</i>`
+        : `is even => <b>There are solutions.</b>`}, Target: {(size *
         (size + 1)) /
         4 -
-        Math.max(h1, h2)}
+        Math.max(h1, h2)} 🗝
     </span>
   {/if}
 </div>
