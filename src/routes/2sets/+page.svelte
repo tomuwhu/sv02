@@ -55,12 +55,12 @@
           <table class="sol">
             <tr><td colspan={2}><b>Solved:</b></td></tr>
             <tr
-              ><td class="l h1">Set 1:</td><td class="r h1"
+              ><td class="l h1">Set&nbsp;1:</td><td class="r h1"
                 >{h1t.sort((a, b) => a - b).join(", ")}</td
               ></tr
             >
             <tr
-              ><td class="l h2">Set 2:</td><td class="r h2"
+              ><td class="l h2">Set&nbsp;2:</td><td class="r h2"
                 >{h2t.sort((a, b) => a - b).join(", ")}</td
               ></tr
             >
