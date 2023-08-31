@@ -110,11 +110,13 @@
     text-align: left;
     font-size: 11px;
     color: rgb(14, 44, 61);
+    padding: 6px;
   }
   td.r {
     text-align: right;
     font-size: 11px;
     color: rgb(16, 54, 72);
+    padding: 6px;
   }
   button {
     all: unset;
