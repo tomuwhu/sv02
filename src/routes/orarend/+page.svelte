@@ -83,7 +83,7 @@
         <span class="hsz">{ora.helysz}</span>
       </div>
       {#if ora.it > 45}
-        <div class="hsz">&lt <i>{ora.it / 45}</i><span>x45 perc</span> &gt</div>
+        <div class="hsz">&lt <i>{(ora.it / 45).toFixed(0)}</i><span>x45 <span id="i">{ora.it % 45 ? `+ ${ora.it % 45}`  : ``}</span> perc</span> &gt</div>
       {/if}
     </div>
   {/each}
@@ -99,6 +99,9 @@
 {/if}
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+  span#i {
+    color: red;
+  }
   div.ora {
     font-family: "Dancing Script", cursive;
     color: rgb(21, 62, 75);
@@ -128,7 +131,7 @@
   }
   div.hsz span {
     color: rgb(128, 84, 84);
-    font-size: 7px;
+    font-size: 9px;
   }
   div.cont {
     opacity: 0.75;
@@ -156,6 +159,9 @@
   }
   div.K {
     background-color: rgb(192, 225, 255);
+  }
+  div.M {
+    background-color: rgb(218, 224, 185);
   }
   div.nn {
     border: solid 0.5px rgb(64, 69, 52);
