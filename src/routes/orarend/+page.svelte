@@ -7,7 +7,7 @@
     orak: [],
     msg: `Pozícionálás...`,
     dow: 'Sz',
-    time: '8:00'
+    time: [8, 0]
   };
   onMount(() => {
     onresize = () => {
@@ -36,7 +36,7 @@
       appdata.dow = d.getDay()
       appdata.time = ds[4].split(":")
     }
-    setInterval(getcurrdt,60000)
+    setInterval(getcurrdt,1000)
     getcurrdt()
   });
   const ips = (d, t) => `
@@ -62,7 +62,7 @@
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
 </script>
-{appdata.dow} {appdata.time}
+{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]} {appdata.time.join(":")}
 {#if appdata.mounted == true}
   {#each ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"] as nap, i}
     <div class="nn" style={snn(nap, i)}><div>{nap}</div></div>
@@ -90,10 +90,10 @@
   >
     <span>Órarend</span>
   </div>
+  <div class="ips" style={ips(appdata.dow, appdata.time)}></div>
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
-<div class="ips" style={ips(appdata.dow, appdata.time)}></div>
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
   div.ips {
