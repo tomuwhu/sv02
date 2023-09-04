@@ -39,10 +39,10 @@
     setInterval(getcurrdt,60000)
     getcurrdt()
   });
-  const ips = (d, t) => `
+  const ips = (d, t) => t[0] * 60 + t[1] * 1 > 7 * 60 + 30 && t[0] * 60 + t[1] * 1 < 17 * 60 + 30 ? `
     top: ${appdata.top + 20 + (t[0] - 7) * 60 + t[1]*1}px;
     left: ${appdata.left + 140 + 100 * (d-1)}px;
-  `
+  ` : `display: none;`
   const style = (ora) => `
   top: ${appdata.top + 20 + (ora.ok[0] - 7) * 60 + ora.ok[1]}px; 
   left:${
