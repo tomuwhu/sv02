@@ -62,7 +62,10 @@
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
 </script>
-{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, {appdata.time[0]}:{appdata.time[1]}  
+<div class="ora">
+{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, <u>{appdata.time[0]}:{appdata.time[1]}</u>  
+</div>
+
 {#if appdata.mounted == true}
   {#each ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"] as nap, i}
     <div class="nn" style={snn(nap, i)}><div>{nap}</div></div>
@@ -94,8 +97,19 @@
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
-<style lang="scss">
+<style>
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+  div.ora {
+    font-family: "Dancing Script", cursive;
+    color: rgb(21, 62, 75);
+    font-size: 19px;
+    text-shadow: 1px 1px 3px gray;
+  }
+  u {
+    all: unset;
+    color: rgb(100, 100, 39);
+    font-size: 16px;
+  }
   div.ips {
     position: fixed;
     width: 90px;
