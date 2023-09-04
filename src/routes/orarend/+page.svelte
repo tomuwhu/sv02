@@ -62,7 +62,7 @@
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
 </script>
-{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]} {appdata.time[0]} : {appdata.time[1]}  
+{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, {appdata.time[0]}:{appdata.time[1]}  
 {#if appdata.mounted == true}
   {#each ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"] as nap, i}
     <div class="nn" style={snn(nap, i)}><div>{nap}</div></div>
