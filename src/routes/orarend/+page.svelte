@@ -28,7 +28,11 @@
         appdata.left = (window.innerWidth - 772) / 2;
         appdata.top = (window.innerHeight - 632) / 2;
         if (appdata.left > -100 && appdata.top > 20) appdata.mounted = true;
-        else appdata.msg = "Túl kicsi ablakméret...";
+        else {
+          appdata.left = -100
+          appdata.top = -10
+          appdata.mounted = true;
+        }
       });
     function getcurrdt() {
       var d = new Date()
