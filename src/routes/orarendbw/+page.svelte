@@ -62,7 +62,7 @@
         <span class="hsz">{ora.helysz}</span>
       </div>
       {#if ora.it > 45}
-        <div class="hsz">&lt {ora.it / 45}<span>x45 perc</span> &gt</div>
+        <div class="hsz">&lt {(ora.it / 45).toFixed(0)}<span>x45 <span id="i">{ora.it % 45 ? `+ ${ora.it % 45}`  : ``}</span> perc</span> &gt</div>
       {/if}
     </div>
   {/each}
@@ -112,6 +112,10 @@
   }
   div.K {
     background-color: rgb(160, 160, 160);
+    width: 90px;
+  }
+  div.M {
+    background-color: rgb(201, 201, 201);
     width: 90px;
   }
   div.nn {
