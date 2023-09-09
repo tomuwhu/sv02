@@ -66,9 +66,6 @@
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
 </script>
-<div class="ora">
-{["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, <u>{appdata.time[0]}:{appdata.time[1]}</u>  
-</div>
 
 {#if appdata.mounted == true}
   {#each ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"] as nap, i}
@@ -95,14 +92,20 @@
     class="orr"
     style="left: {appdata.left + 107}px; top: {appdata.top - 50}px;"
   >
-    <span>Órarend</span>
+    <div class="ora"><b>Órarend:</b> {["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, <u>{appdata.time[0]}:{appdata.time[1]}</u>  
+</div>
   </div>
-  <div class="ips" style={ips(appdata.dow, appdata.time)}></div>
+  {#if appdata.dow < 6}
+    <div class="ips" style={ips(appdata.dow, appdata.time)}></div>
+  {/if}
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+  .ora b {
+    color: red;
+  }
   span#i {
     color: red;
   }
