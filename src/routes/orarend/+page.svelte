@@ -95,7 +95,7 @@
     <div class="ora"><b>Órarend:</b> {["Vasárnap", "Hétfő","Kedd","Szerda", "Csütörtök", "Péntek", "Szombat"][appdata.dow]}, <u>{appdata.time[0]}:{appdata.time[1]}</u>  
 </div>
   </div>
-  {#if appdata.dow < 6}
+  {#if appdata.dow > 0 && appdata.dow < 6}
     <div class="ips" style={ips(appdata.dow, appdata.time)}></div>
   {/if}
 {:else}
