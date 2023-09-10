@@ -14,7 +14,7 @@
       if (appdata.mounted || appdata.msg == "Túl kicsi ablakméret...")
         setTimeout(() => {
           appdata.left = (window.innerWidth - 772) / 2;
-          appdata.top = (window.innerHeight - 632) / 2;
+          appdata.top = (window.innerHeight - 712) / 2;
           if (appdata.left > -100 && appdata.top > 20)
             (appdata.mounted = true), (appdata.msg = "Pozícionálás...");
           else appdata.msg = "Túl kicsi ablakméret...";
@@ -26,7 +26,7 @@
       .then((data) => {
         appdata.orak = data;
         appdata.left = (window.innerWidth - 772) / 2;
-        appdata.top = (window.innerHeight - 632) / 2;
+        appdata.top = (window.innerHeight - 712) / 2;
         if (appdata.left > -100 && appdata.top > 20) appdata.mounted = true;
         else {
           appdata.left = -100
@@ -227,6 +227,7 @@
     font-family: "Dancing Script", cursive;
     color: rgb(33, 64, 67);
     text-shadow: 1px 1px 2px rgb(132, 114, 114);
+    margin-top: 30px;
   }
   div.orr span {
     color: rgb(96, 65, 24);
