@@ -71,7 +71,7 @@
   {#each ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"] as nap, i}
     <div class="nn" style={snn(nap, i)}><div>{nap}</div></div>
   {/each}
-  {#each Array(41).fill(0) as _, i}
+  {#each Array(42).fill(0) as _, i}
     <div style={hrs2(i)} class="hr" />
     <div style={hrs(i, 107)} class="ip">{opp(i)}</div>
     <div style={hrs(i, 638)} class="ip">{opp(i)}</div>
@@ -180,7 +180,7 @@
     border-radius: 7px;
     position: absolute;
     width: 96px;
-    height: 637px;
+    height: 653px;
   }
   div.nn div {
     font-family: "Dancing Script", cursive;
