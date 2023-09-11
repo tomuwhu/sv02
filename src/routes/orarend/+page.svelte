@@ -162,13 +162,13 @@
     background-color: rgba(237, 242, 202, 0.727);
   }
   div.S {
-    background-color: pink;
+    background-color: rgb(185, 224, 192);
   }
   div.K {
     background-color: rgb(192, 225, 255);
   }
   div.M {
-    background-color: rgb(218, 224, 185);
+    background-color: pink;
   }
   div.nn {
     border: solid 0.5px rgb(64, 69, 52);
