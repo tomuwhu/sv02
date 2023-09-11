@@ -1,65 +1,5 @@
 [
   {
-    "type": "E",
-    "text": "Számítástechnikai alapismeretek ea.",
-    "csop": "Bio",
-    "helysz": "IR-227",
-    "n": "H",
-    "ok": [
-      8,
-      0
-    ],
-    "it": 90
-  },
-  {
-    "type": "E",
-    "text": "Számítástechnikai alapismeretek ea.",
-    "csop": "IT",
-    "helysz": "IR-226",
-    "n": "K",
-    "ok": [
-      9,
-      0
-    ],
-    "it": 45
-  },
-  {
-    "type": "E",
-    "text": "Progr. versenyek fel. megoldása gyak.",
-    "csop": "IT",
-    "helysz": "IR-227",
-    "n": "K",
-    "ok": [
-      16,
-      0
-    ],
-    "it": 90
-  },
-  {
-    "type": "E",
-    "text": "Informatikai alapismeretek ea.",
-    "csop": "IT",
-    "helysz": "IR-227",
-    "n": "Cs",
-    "ok": [
-      14,
-      0
-    ],
-    "it": 45
-  },
-  {
-    "type": "E",
-    "text": "Számítógépes rendszerek gyak.",
-    "csop": "IT",
-    "helysz": "IR-227",
-    "n": "Cs",
-    "ok": [
-      15,
-      0
-    ],
-    "it": 135
-  },
-  {
     "type": "S",
     "text": "Digitális Kultúra",
     "csop": "6. 11/I",
@@ -202,5 +142,53 @@
       55
     ],
     "it": 90
+  },
+  {
+    "type": "E",
+    "text": "Problémamegoldó szeminárium (a)",
+    "csop": "IT",
+    "helysz": "IR-221",
+    "n": "K",
+    "ok": [
+      10,
+      0
+    ],
+    "it": 135
+  },
+  {
+    "type": "E",
+    "text": "Algoritmizálás gyak.",
+    "csop": "IT",
+    "helysz": "IR-221",
+    "n": "K",
+    "ok": [
+      16,
+      0
+    ],
+    "it": 45
+  },
+  {
+    "type": "E",
+    "text": "Oktatást Támogató I.R. ea.",
+    "csop": "IT",
+    "helysz": "IR-221",
+    "n": "K",
+    "ok": [
+      15,
+      0
+    ],
+    "it": 45
+  },
+  {
+    "type": "E",
+    "text": "Elemi informatika",
+    "csop": "IT",
+    "helysz": "IR-227",
+    "n": "Sz",
+    "ok": [
+      15,
+      0
+    ],
+    "it": 135
   }
 ]
