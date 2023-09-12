@@ -145,18 +145,6 @@
   },
   {
     "type": "E",
-    "text": "Problémamegoldó szeminárium (a)",
-    "csop": "IT",
-    "helysz": "IR-221",
-    "n": "K",
-    "ok": [
-      10,
-      0
-    ],
-    "it": 135
-  },
-  {
-    "type": "E",
     "text": "Algoritmizálás gyak.",
     "csop": "IT",
     "helysz": "IR-221",
@@ -166,29 +154,5 @@
       0
     ],
     "it": 45
-  },
-  {
-    "type": "E",
-    "text": "Oktatást Támogató I.R. ea.",
-    "csop": "IT",
-    "helysz": "IR-221",
-    "n": "K",
-    "ok": [
-      15,
-      0
-    ],
-    "it": 45
-  },
-  {
-    "type": "E",
-    "text": "Elemi informatika",
-    "csop": "IT",
-    "helysz": "IR-227",
-    "n": "Sz",
-    "ok": [
-      15,
-      0
-    ],
-    "it": 135
   }
 ]

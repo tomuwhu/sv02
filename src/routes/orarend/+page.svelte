@@ -159,7 +159,7 @@
     color: rgb(123, 50, 50);
   }
   div.E {
-    background-color: rgba(202, 242, 229, 0.426);
+    background-color: rgba(88, 124, 113, 0.434);
   }
   div.S {
     background-color: pink;
