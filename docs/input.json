@@ -105,7 +105,7 @@
       12,
       45
     ],
-    "it": 180
+    "it": 135
   },
   {
     "type": "K",
@@ -129,7 +129,7 @@
       9,
       55
     ],
-    "it": 90
+    "it": 135
   },
   {
     "type": "K",
@@ -145,14 +145,14 @@
   },
   {
     "type": "E",
-    "text": "Algoritmizálás gyak.",
-    "csop": "IT",
-    "helysz": "IR-221",
-    "n": "K",
+    "text": "Egyetemi szakkör",
+    "csop": "",
+    "helysz": "IR-223",
+    "n": "P",
     "ok": [
-      16,
-      0
+      15,
+      15
     ],
-    "it": 45
+    "it": 90
   }
 ]
