@@ -43,6 +43,9 @@
     perc = perc % 60;
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
+  const g = ora => {
+    console.log(ora)
+  }
 </script>
 
 {#if appdata.mounted == true}
@@ -55,7 +58,9 @@
     <div style={hrs(i, 636)} class="ip">{opp(i)}</div>
   {/each}
   {#each appdata.orak as ora}
-    <div class="cont {ora.type}" style={style(ora)}>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="cont {ora.type}" style={style(ora)} on:click={()=>g(ora)}>
       <div class="text">{ora.text}</div>
       <div class="csh">
         <span class="csop">{ora.csop}</span> ---
@@ -88,7 +93,9 @@
     position: absolute;
     border: solid 1px rgb(9, 9, 9);
     text-align: center;
-    border-radius: 5px;
+    border-radius: 1px;
+    user-select: none;
+    cursor: pointer;
   }
   div.text {
     margin-top: 4px;

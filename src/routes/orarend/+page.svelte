@@ -65,6 +65,11 @@
     perc = perc % 60;
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
+  var disp = ''
+  const g = ora => {
+    var veg = ora.ok[0]*60+ora.ok[1]+ora.it
+    disp = `${ora.ok[0]}:${ora.ok[1] == 0 ? '00':ora.ok[1]} - ${Math.trunc(veg / 60)}:${veg % 60 == 0 ? '00' : veg % 60}`
+  }
 </script>
 
 {#if appdata.mounted == true}
@@ -77,7 +82,9 @@
     <div style={hrs(i, 638)} class="ip">{opp(i)}</div>
   {/each}
   {#each appdata.orak as ora}
-    <div class="cont {ora.type}" style={style(ora)}>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div class="cont {ora.type}" style={style(ora)} on:click={()=>g(ora)}>
       <div class="text">{ora.text}</div>
       <div class="csh">
         <span class="csop">{ora.csop}</span> -
@@ -101,8 +108,22 @@
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
+<div class="disp">
+{disp}
+</div>
+
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+  div.disp {
+    color: rgb(113, 60, 60);
+    text-shadow: 1px 1px 3px gray;
+    position: absolute;
+    background-color: bisque;
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px inset black;
+  }
   .ora b {
     color: red;
   }
@@ -147,6 +168,8 @@
     text-align: center;
     border-radius: 5px;
     box-shadow: 1px 1px 2px inset rgb(143, 141, 141);
+    user-select: none;
+    cursor: pointer;
   }
   div.text {
     margin-top: 4px;
