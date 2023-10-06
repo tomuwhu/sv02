@@ -65,10 +65,13 @@
     perc = perc % 60;
     return `${ora}:${perc < 10 ? "0" + perc : perc}`;
   }
-  var disp = ''
-  const g = ora => {
+  var disp = '', dispobj
+  const g = (ora, e) => {
     var veg = ora.ok[0]*60+ora.ok[1]+ora.it
-    disp = `${ora.ok[0]}:${ora.ok[1] == 0 ? '00':ora.ok[1]} - ${Math.trunc(veg / 60)}:${veg % 60 == 0 ? '00' : veg % 60}`
+    disp = `${ora.ok[0]}:${ora.ok[1] < 0 ? '0'+ora.ok[1] :ora.ok[1]} - ${Math.trunc(veg / 60)}:${veg % 60 < 10 ? '0'+veg % 60 : veg % 60}`
+      .replaceAll(':0 ', ':00 ')
+    dispobj.style.top = e.y - 46 + 'px'
+    dispobj.style.left = e.x - 50 + 'px'
   }
 </script>
 
@@ -84,7 +87,7 @@
   {#each appdata.orak as ora}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <div class="cont {ora.type}" style={style(ora)} on:click={()=>g(ora)}>
+    <div class="cont {ora.type}" style={style(ora)} on:click={e => g(ora, e)}>
       <div class="text">{ora.text}</div>
       <div class="csh">
         <span class="csop">{ora.csop}</span> -
@@ -108,21 +111,22 @@
 {:else}
   <div class="orr">{appdata.msg}</div>
 {/if}
-<div class="disp">
+<div class="disp" bind:this={dispobj}>
 {disp}
 </div>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
   div.disp {
-    color: rgb(113, 60, 60);
+    color: rgb(60, 96, 113);
     text-shadow: 1px 1px 3px gray;
     position: absolute;
-    background-color: bisque;
+    background-color: rgb(243, 235, 213);
     padding: 10px;
     border: solid 1px black;
     border-radius: 6px;
     box-shadow: 1px 1px 4px inset black;
+    top: -200px
   }
   .ora b {
     color: red;
